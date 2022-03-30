@@ -1,0 +1,28 @@
+buildscript {
+    ext {
+        compose_version = '1.0.1'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.squareup.wire:wire-gradle-plugin:4.3.0'
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.1.2' apply false
+    id 'com.android.library' version '7.1.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.5.21' apply false
+}
+
+apply plugin: 'com.squareup.wire'
+
+wire {
+    kotlin {}
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
